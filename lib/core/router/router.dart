@@ -6,10 +6,36 @@ import 'package:your_tracks_riverpod/core/router/router.gr.dart';
 class AppRouter extends $AppRouter {
   @override
   late final List<AutoRoute> routes = [
+   
     AutoRoute(
-      page: CounterRoute.page,
-      path: '/',
-      initial: true,
+      page: ProfileRoute.page,
+      path: '/profile',
     ),
+    AutoRoute(
+      page: AddExpRoute.page,
+      path: '/add-expense',
+    ),
+    AutoRoute(
+        page: NavBarRoute.page,
+        path: '/navbar',
+        initial: true,
+        children: [
+          AutoRoute(
+            page: HomeRoute.page,
+            path: 'home',
+          ),
+          AutoRoute(
+            page: AllExpensesRoute.page,
+            path: 'expenses',
+          ),
+          AutoRoute(
+            page: ExpenseSummaryRoute.page,
+            path: 'summary',
+          ),
+          AutoRoute(
+            page: SettingsRoute.page,
+            path: 'settings',
+          ),
+        ]),
   ];
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "458397260180",
+    "project_id": "yourtracks-c11cf",
+    "storage_bucket": "yourtracks-c11cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458397260180:android:518ef7cd7d8f45cc5e9781",
+        "android_client_info": {
+          "package_name": "com.example.your_tracks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUhFG3rrO6Ik5eufID4fTT0Ks5nzJpJpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458397260180:android:52373eb141c505ad5e9781",
+        "android_client_info": {
+          "package_name": "com.example.your_tracks_riverpod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUhFG3rrO6Ik5eufID4fTT0Ks5nzJpJpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
