@@ -129,8 +129,8 @@ class _LoaderChildState extends State<LoaderChild>
             const Positioned(
               bottom: 44,
               child: CircularProgressIndicator(
-                color: Colors.amber,
-              ),
+                  // color: Colors.amber,
+                  ),
             ),
             const Positioned(
               bottom: 16,

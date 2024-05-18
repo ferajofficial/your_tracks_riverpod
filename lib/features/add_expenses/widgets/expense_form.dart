@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 
 class CategoryList {

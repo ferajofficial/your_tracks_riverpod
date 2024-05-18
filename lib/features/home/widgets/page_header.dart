@@ -3,7 +3,6 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 
-
 class PageHeader extends StatelessWidget {
   const PageHeader({
     super.key,
@@ -14,9 +13,14 @@ class PageHeader extends StatelessWidget {
     return Row(
       children: [
         CircleAvatar(
-          radius: 25,
-          backgroundColor: AppColors.selectionColor.withOpacity(0.5),
-        ),
+            radius: 25,
+            backgroundColor: AppColors.selectionColor.withOpacity(0.5),
+            child: IconButton(
+                onPressed: () {
+                  // context.navigateTo(const ProfileRoute());
+                },
+                icon: const Icon(Icons.person,
+                    color: AppColors.kBlack, size: 30))),
         const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

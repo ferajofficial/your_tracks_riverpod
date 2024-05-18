@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:your_tracks_riverpod/app/view/app.dart';
 import 'package:your_tracks_riverpod/bootstrap.dart';
+import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/features/splash/view/splash_view.dart';
 
 class Splasher extends StatelessWidget {
@@ -11,7 +11,7 @@ class Splasher extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.blue),
+      theme: ThemeData(primaryColor: AppColors.kSecondaryBgColor),
       home: SplashView(
         removeSpalshLoader: false,
         onInitialized: (container) {

@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 
 class Barchart extends StatefulWidget {
@@ -25,7 +24,7 @@ class _BarchartState extends State<Barchart> {
           color: AppColors.selectionColor.withOpacity(0.5),
           width: 20,
           backDrawRodData: BackgroundBarChartRodData(
-              show: true, toY: 5, color: Colors.grey.shade100))
+              show: true, toY: 5, color: Colors.grey.shade200))
     ]);
   }
 

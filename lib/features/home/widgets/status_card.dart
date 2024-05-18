@@ -4,7 +4,6 @@ import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 import 'package:your_tracks_riverpod/features/home/widgets/counters.dart';
 
-
 class StatusCard extends StatelessWidget {
   const StatusCard({
     super.key,

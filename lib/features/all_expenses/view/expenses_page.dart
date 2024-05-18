@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
+import 'package:your_tracks_riverpod/features/all_expenses/widgets/filter_properties.dart';
+import 'package:your_tracks_riverpod/features/all_expenses/widgets/filtered_tiles.dart';
 
 @RoutePage()
 class AllExpensesPage extends StatelessWidget {
@@ -35,51 +36,14 @@ class _AllExpensesPageViewState extends State<AllExpensesPageView> {
         body: SafeArea(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  const AppText(text: 'Filter by: '),
-                  FilterChip(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    label: const AppText(text: 'Income'),
-                    onSelected: (bool value) {},
-                  ),
-                  FilterChip(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    label: const AppText(text: 'Expense'),
-                    onSelected: (bool value) {},
-                  ),
-                  FilterChip(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    label: const AppText(text: 'Date'),
-                    onSelected: (bool value) {},
-                  )
-                ],
+              const FilterProperties().pOnly(left: 15),
+              const Divider(
+                indent: 25,
+                endIndent: 25,
+                thickness: 0.8,
               ),
               Expanded(
-                child: ListView.separated(
-                        itemBuilder: (context, index) => Card(
-                              color: AppColors.selectionColor.withOpacity(0.1),
-                              elevation: 0,
-                              child: ListTile(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  side: BorderSide(
-                                    color: AppColors.selectionColor
-                                        .withOpacity(0.5),
-                                    width: 0.5,
-                                  ),
-                                ),
-                                // tileColor: Colors.grey.shade300,
-                                title: const Text('Title'),
-                              ),
-                            ),
-                        separatorBuilder: (context, index) => 5.heightBox,
-                        itemCount: 20)
-                    .p12(),
+                child: const FilteredTiles().p12(),
               ),
             ],
           ),

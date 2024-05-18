@@ -4,6 +4,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 import 'package:your_tracks_riverpod/features/expense_summary/widgets/bar_chart.dart';
+import 'package:your_tracks_riverpod/features/expense_summary/widgets/spending_cards.dart';
 
 @RoutePage()
 class ExpenseSummaryPage extends StatelessWidget {
@@ -46,17 +47,22 @@ class _ExpenseSummaryViewState extends State<ExpenseSummaryView> {
                   fontSize: 28,
                   fontWeight: FontWeight.w700,
                   color: AppColors.kBlack.withOpacity(0.6)),
-              8.heightBox,
+              5.heightBox,
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                    color: AppColors.selectionColor.withOpacity(0.5),
-                    width: 0.5,
-                  ),
-                ),
-                child: const Barchart().pOnly(top: 15, bottom: 15),
-              ).h(350).w(400),
+                    color: AppColors.kSecondaryBgColor,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.kBlack.withOpacity(0.2),
+                        blurRadius: 8,
+                        spreadRadius: 2,
+                        offset: const Offset(0, 5),
+                      ),
+                    ]),
+                child: const Barchart()
+                    .pOnly(top: 15, bottom: 15, left: 5, right: 5),
+              ).h(350).w(400).p8(),
               15.heightBox,
               const Align(
                 alignment: Alignment.centerLeft,
@@ -65,49 +71,9 @@ class _ExpenseSummaryViewState extends State<ExpenseSummaryView> {
                   fontSize: 18,
                 ),
               ),
-              Expanded(
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                  ),
-                  itemCount: 6,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.selectionColor.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                          color: AppColors.selectionColor.withOpacity(0.5),
-                          width: 0.5,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          CircleAvatar(
-                            backgroundColor:
-                                AppColors.selectionColor.withOpacity(0.5),
-                            child: const Icon(
-                              Icons.shopping_cart,
-                              color: AppColors.kwhite,
-                            ),
-                          ),
-                          const AppText(
-                            text: 'Category',
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          const AppText(
-                            text: '₹ 2,00,09',
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ],
-                      ),
-                    ).h(50).w(50).p12();
-                  },
-                ),
+              10.heightBox,
+              const Expanded(
+                child: SpendingCards(),
               ),
             ],
           ).p12(),

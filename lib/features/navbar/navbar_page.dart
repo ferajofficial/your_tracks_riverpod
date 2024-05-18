@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/core/router/router.gr.dart';
 import 'package:your_tracks_riverpod/shared/global_loader.dart';
@@ -69,7 +68,7 @@ class _NavBarPageState extends State<NavBarPage> {
                     ),
                     NavigationDestination(
                       icon: Icon(
-                        Icons.paypal_rounded,
+                        Icons.request_page_rounded,
                         color: tabsRouter.activeIndex == 1
                             ? AppColors.selectionColor
                             : AppColors.kwhite.withOpacity(0.8),
