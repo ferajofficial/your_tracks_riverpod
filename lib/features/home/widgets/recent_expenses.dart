@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
-import 'package:your_tracks_riverpod/features/all_expenses/widgets/expenses_cards.dart';
 import 'package:your_tracks_riverpod/features/home/controllers/get_expense_pod.dart';
+import 'package:your_tracks_riverpod/features/home/widgets/recent_expense_card.dart';
 import 'package:your_tracks_riverpod/shared/riverpod_ext/asynvalue_easy_when.dart';
 
-class FilteredTiles extends StatelessWidget {
-  const FilteredTiles({
+class RecentExpenses extends StatelessWidget {
+  const RecentExpenses({
     super.key,
   });
 
@@ -18,19 +18,21 @@ class FilteredTiles extends StatelessWidget {
         final expenseAsync = ref.watch(expensePod);
         return expenseAsync.easyWhen(
           data: (expenseData) {
-            return ListView.separated(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              separatorBuilder: (context, index) => 5.heightBox,
-              itemCount: expenseData.length,
-              itemBuilder: (context, index) {
-                final expenseIndex = expenseData[index];
-                final transactionName = expenseIndex.expenseName;
-                final transactionAmount = expenseIndex.amount;
-                return ExpensesCards(
-                    transactionName: transactionName,
-                    transactionAmount: transactionAmount);
-              },
+            return Expanded(
+              child: ListView.separated(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                separatorBuilder: (context, index) => 12.heightBox,
+                itemCount: expenseData.length,
+                itemBuilder: (context, index) {
+                  final expenseIndex = expenseData[index];
+                  final transactionName = expenseIndex.expenseName;
+                  final transactionAmount = expenseIndex.amount;
+                  return RecentExpensesCards(
+                      transactionName: transactionName,
+                      transactionAmount: transactionAmount);
+                },
+              ),
             );
           },
           loadingWidget: () => const Center(

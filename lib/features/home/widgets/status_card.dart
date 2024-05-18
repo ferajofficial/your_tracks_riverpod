@@ -14,11 +14,11 @@ class StatusCard extends StatelessWidget {
     return Container(
       width: context.screenWidth,
       decoration: BoxDecoration(
-        color: AppColors.selectionColor.withOpacity(0.5),
+        color: AppColors.ksecondaryBgColor.withOpacity(0.5),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: AppColors.kBlack.withOpacity(0.2),
+            color: AppColors.kBlackColor.withOpacity(0.2),
             blurRadius: 10,
             spreadRadius: 4,
             offset: const Offset(0, 5),
@@ -34,13 +34,13 @@ class StatusCard extends StatelessWidget {
             text: 'Total Balance',
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: AppColors.kwhite,
+            color: AppColors.kwhiteColor,
           ),
           const AppText(
             text: '₹ 2,090,5.0',
             fontSize: 35,
             fontWeight: FontWeight.bold,
-            color: AppColors.kwhite,
+            color: AppColors.kwhiteColor,
           ),
           25.heightBox,
           const Row(
@@ -49,13 +49,13 @@ class StatusCard extends StatelessWidget {
               Counters(
                 counterText: 'Total Income',
                 counterValue: '₹ 2,090,5.0',
-                counterIconColor: AppColors.kIncIcon,
+                counterIconColor: AppColors.kIncIconColor,
                 counterIcon: Icons.arrow_drop_up,
               ),
               Counters(
                 counterText: 'Total Expenses',
                 counterValue: '₹ 2,090,5.0',
-                counterIconColor: AppColors.kExpIcon,
+                counterIconColor: AppColors.kExpIconColor,
                 counterIcon: Icons.arrow_drop_down,
               ),
             ],

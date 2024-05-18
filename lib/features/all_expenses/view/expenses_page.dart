@@ -27,9 +27,9 @@ class _AllExpensesPageViewState extends State<AllExpensesPageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.kSecondaryBgColor,
+        backgroundColor: AppColors.kPrimaryBgColor,
         appBar: AppBar(
-          backgroundColor: AppColors.kSecondaryBgColor,
+          backgroundColor: AppColors.kPrimaryBgColor,
           title: const AppText(text: 'All Your Expenses', fontSize: 20),
           centerTitle: true,
         ),

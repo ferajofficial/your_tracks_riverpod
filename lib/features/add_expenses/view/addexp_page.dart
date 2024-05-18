@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'package:velocity_x/velocity_x.dart';
-
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 import 'package:your_tracks_riverpod/features/add_expenses/widgets/expense_form.dart';
@@ -33,29 +31,28 @@ class _AddExpenseViewState extends State<AddExpenseView> {
   final formKey = GlobalKey<FormState>();
   CategoryList? selectedCategory;
 
-
   @override
   void initState() {
     super.initState();
-   
+
     date.text = DateFormat('dd.MM.yyyy').format(DateTime.now().toLocal());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.kSecondaryBgColor,
+        backgroundColor: AppColors.kPrimaryBgColor,
         appBar: AppBar(
-          backgroundColor: AppColors.kSecondaryBgColor,
+          backgroundColor: AppColors.kPrimaryBgColor,
           leading: CircleAvatar(
-            backgroundColor: AppColors.selectionColor.withOpacity(0.5),
+            backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
             child: IconButton(
               onPressed: () {
                 context.maybePop();
               },
               icon: const Icon(
                 Icons.arrow_back,
-                color: AppColors.kwhite,
+                color: AppColors.kwhiteColor,
               ),
             ),
           ).p8(),
@@ -82,9 +79,7 @@ class _AddExpenseViewState extends State<AddExpenseView> {
             GlobalButton(
               buttonText: 'Save',
               onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  
-                }
+                if (formKey.currentState!.validate()) {}
               },
             ).p12().h(80),
           ],

@@ -79,19 +79,19 @@ class _ExpenseFormState extends State<ExpenseForm> {
               hintText: 'Enter Expenses',
               hintStyle: TextStyle(
                 textBaseline: TextBaseline.alphabetic,
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
                 fontFamily: GoogleFonts.poppins().fontFamily,
               ),
               labelText: 'Expense',
               labelStyle: TextStyle(
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
                 fontFamily: GoogleFonts.poppins().fontFamily,
               ),
               prefixIcon: const Icon(
                 IconData(0x20B9,
                     fontFamily:
                         'MaterialIcons'), // Unicode for Indian rupee symbol
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -121,12 +121,12 @@ class _ExpenseFormState extends State<ExpenseForm> {
               hintText: 'Enter Name',
               hintStyle: TextStyle(
                 textBaseline: TextBaseline.alphabetic,
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
                 fontFamily: GoogleFonts.poppins().fontFamily,
               ),
               labelText: 'Name',
               labelStyle: TextStyle(
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
                 fontFamily: GoogleFonts.poppins().fontFamily,
               ),
               border: OutlineInputBorder(
@@ -148,12 +148,12 @@ class _ExpenseFormState extends State<ExpenseForm> {
               hintText: 'Select Date',
               hintStyle: TextStyle(
                 textBaseline: TextBaseline.alphabetic,
-                color: AppColors.kBlack.withOpacity(0.5),
+                color: AppColors.kBlackColor.withOpacity(0.5),
                 fontFamily: GoogleFonts.poppins().fontFamily,
               ),
               labelText: 'Date',
               labelStyle: TextStyle(
-                color: AppColors.kBlack.withOpacity(0.5),
+                color: AppColors.kBlackColor.withOpacity(0.5),
                 fontFamily: GoogleFonts.poppins().fontFamily,
               ),
               border: OutlineInputBorder(

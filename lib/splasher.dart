@@ -11,7 +11,7 @@ class Splasher extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: AppColors.kSecondaryBgColor),
+      theme: ThemeData(primaryColor: AppColors.kPrimaryBgColor),
       home: SplashView(
         removeSpalshLoader: false,
         onInitialized: (container) {

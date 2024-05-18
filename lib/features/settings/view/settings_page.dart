@@ -27,9 +27,9 @@ class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.kSecondaryBgColor,
+        backgroundColor: AppColors.kPrimaryBgColor,
         appBar: AppBar(
-          backgroundColor: AppColors.kSecondaryBgColor,
+          backgroundColor: AppColors.kPrimaryBgColor,
           title: const AppText(text: 'Settings', fontSize: 20),
           centerTitle: true,
         ),

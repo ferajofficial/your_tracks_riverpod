@@ -23,7 +23,7 @@ class Counters extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 15,
-          backgroundColor: AppColors.kwhite.withOpacity(0.3),
+          backgroundColor: AppColors.kwhiteColor.withOpacity(0.3),
           child: Icon(
             counterIcon,
             color: counterIconColor,
@@ -37,13 +37,13 @@ class Counters extends StatelessWidget {
               text: counterText,
               fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: AppColors.kwhite,
+              color: AppColors.kwhiteColor,
             ),
             AppText(
               text: counterValue,
               fontSize: 14,
               fontWeight: FontWeight.bold,
-              color: AppColors.kwhite,
+              color: AppColors.kwhiteColor,
             ),
           ],
         ),

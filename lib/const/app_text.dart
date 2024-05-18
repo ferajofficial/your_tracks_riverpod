@@ -24,7 +24,7 @@ class AppText extends StatelessWidget {
   const AppText({
     super.key,
     required this.text,
-    this.color = AppColors.kBlack,
+    this.color = AppColors.kBlackColor,
     this.fontWeight = FontWeight.w500,
     this.letterSpacing = 0.3,
     this.fontSize = 14,

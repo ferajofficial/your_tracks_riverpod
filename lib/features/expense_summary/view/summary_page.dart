@@ -27,9 +27,9 @@ class _ExpenseSummaryViewState extends State<ExpenseSummaryView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.kSecondaryBgColor,
+        backgroundColor: AppColors.kPrimaryBgColor,
         appBar: AppBar(
-          backgroundColor: AppColors.kSecondaryBgColor,
+          backgroundColor: AppColors.kPrimaryBgColor,
           title: const AppText(text: 'Expense Summary', fontSize: 20),
           centerTitle: true,
         ),
@@ -46,15 +46,15 @@ class _ExpenseSummaryViewState extends State<ExpenseSummaryView> {
                   text: '₹ 2,00,09',
                   fontSize: 28,
                   fontWeight: FontWeight.w700,
-                  color: AppColors.kBlack.withOpacity(0.6)),
+                  color: AppColors.kBlackColor.withOpacity(0.6)),
               5.heightBox,
               Container(
                 decoration: BoxDecoration(
-                    color: AppColors.kSecondaryBgColor,
+                    color: AppColors.kPrimaryBgColor,
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.kBlack.withOpacity(0.2),
+                        color: AppColors.kBlackColor.withOpacity(0.2),
                         blurRadius: 8,
                         spreadRadius: 2,
                         offset: const Offset(0, 5),

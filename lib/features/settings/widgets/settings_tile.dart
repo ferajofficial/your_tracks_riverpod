@@ -17,7 +17,7 @@ class SettingsTiles extends StatelessWidget {
         AppTile(
           tileText: 'Dark Mode',
           trailingWidget: Switch(
-              activeColor: AppColors.selectionColor.withOpacity(0.8),
+              activeColor: AppColors.ksecondaryBgColor.withOpacity(0.8),
               value: false,
               onChanged: (bool value) {}),
         ),
@@ -25,7 +25,7 @@ class SettingsTiles extends StatelessWidget {
           tileText: 'Notifications',
           trailingWidget: Switch(
             value: true,
-            activeColor: AppColors.selectionColor.withOpacity(0.8),
+            activeColor: AppColors.ksecondaryBgColor.withOpacity(0.8),
             onChanged: (bool value) {
               value = !value;
             },
@@ -37,7 +37,7 @@ class SettingsTiles extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(
                 Icons.arrow_forward_ios_rounded,
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
                 size: 20,
               )),
         ),
@@ -52,7 +52,7 @@ class SettingsTiles extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(
                 Icons.arrow_forward_ios_rounded,
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
                 size: 20,
               )),
         ),
@@ -67,7 +67,7 @@ class SettingsTiles extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(
                 Icons.arrow_forward_ios_rounded,
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
                 size: 20,
               )),
         ),
@@ -82,7 +82,7 @@ class SettingsTiles extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(
                 Icons.arrow_forward_ios_rounded,
-                color: AppColors.kBlack,
+                color: AppColors.kBlackColor,
                 size: 20,
               )),
         ),

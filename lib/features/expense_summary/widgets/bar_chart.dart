@@ -21,7 +21,7 @@ class _BarchartState extends State<Barchart> {
     return BarChartGroupData(x: x, barRods: [
       BarChartRodData(
           toY: y,
-          color: AppColors.selectionColor.withOpacity(0.5),
+          color: AppColors.ksecondaryBgColor.withOpacity(0.5),
           width: 20,
           backDrawRodData: BackgroundBarChartRodData(
               show: true, toY: 5, color: Colors.grey.shade200))
