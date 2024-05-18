@@ -63,7 +63,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   ),
                   NavigationDestination(
                     icon: Icon(
-                      Icons.request_page_rounded,
+                      Icons.swap_horiz_rounded,
                       color: tabsRouter.activeIndex == 1
                           ? AppColors.ksecondaryBgColor
                           : AppColors.kwhiteColor.withOpacity(0.8),

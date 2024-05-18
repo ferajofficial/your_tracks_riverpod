@@ -32,7 +32,7 @@ class RecentExpensesCards extends StatelessWidget {
         leading: CircleAvatar(
           backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
           child: const Icon(
-            Icons.shopping_cart,
+            Icons.shopify_rounded,
             color: AppColors.kwhiteColor,
           ),
         ),

@@ -16,15 +16,18 @@ class ExpensesCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.ksecondaryBgColor.withOpacity(0.1),
-      elevation: 0,
+      color: AppColors.kPrimaryBgColor,
+      elevation: 5,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-          side: BorderSide(
-            color: AppColors.ksecondaryBgColor.withOpacity(1),
-            width: 0.5,
-          )),
+        borderRadius: BorderRadius.circular(15),
+        // side: BorderSide(
+        //   color: AppColors.ksecondaryBgColor.withOpacity(1),
+        //   width: 1,
+        // )
+      ),
       child: ListTile(
+        // tileColor: AppColors.ksecondaryBgColor.withOpacity(0.1),
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         title: AppText(
           textAlign: TextAlign.left,
           text: transactionName,

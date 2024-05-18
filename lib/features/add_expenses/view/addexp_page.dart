@@ -1,11 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:your_tracks_riverpod/bootstrap.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
+import 'package:your_tracks_riverpod/data/model/expense_model.dart';
+import 'package:your_tracks_riverpod/features/add_expenses/controllers/add_expense_pod.dart';
 import 'package:your_tracks_riverpod/features/add_expenses/widgets/expense_form.dart';
-import 'package:your_tracks_riverpod/shared/global_button.dart';
+import 'package:your_tracks_riverpod/features/add_expenses/widgets/save_button.dart';
+import 'package:your_tracks_riverpod/features/home/controllers/get_expense_pod.dart';
 
 @RoutePage()
 class AddExpPage extends StatelessWidget {
@@ -17,25 +23,54 @@ class AddExpPage extends StatelessWidget {
   }
 }
 
-class AddExpenseView extends StatefulWidget {
+class AddExpenseView extends ConsumerStatefulWidget {
   const AddExpenseView({super.key});
 
   @override
-  State<AddExpenseView> createState() => _AddExpenseViewState();
+  ConsumerState<AddExpenseView> createState() => _AddExpenseViewState();
 }
 
-class _AddExpenseViewState extends State<AddExpenseView> {
+class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
   TextEditingController date = TextEditingController();
   TextEditingController name = TextEditingController();
-  TextEditingController expenseC = TextEditingController();
+  TextEditingController expenseController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   CategoryList? selectedCategory;
+  String expenseId = const Uuid().v1();
 
   @override
   void initState() {
     super.initState();
 
     date.text = DateFormat('dd.MM.yyyy').format(DateTime.now().toLocal());
+  }
+
+  void onSubmit() {
+    try {
+      if (date.text.isEmptyOrNull ||
+          name.text.isEmptyOrNull ||
+          expenseController.text.isEmptyOrNull ||
+          date.text == '' ||
+          name.text == '' ||
+          expenseController.text == '') {
+        context.showToast(msg: 'Please fill all the fields');
+      } else {
+        ref.read(addExpenseRepoPod.notifier).addExpense(
+            expenseModel: ExpenseModel(
+              amount: int.parse(expenseController.text),
+              expenseName: name.text,
+              expenseId: expenseId,
+              date: DateTime.now(),
+              categoryId: '',
+            ),
+            onAddExpense: () {
+              ref.invalidate(expensePod);
+              context.maybePop();
+            });
+      }
+    } catch (e) {
+      talker.debug(e.toString());
+    }
   }
 
   @override
@@ -72,16 +107,11 @@ class _AddExpenseViewState extends State<AddExpenseView> {
             ExpenseForm(
               dateController: date,
               nameController: name,
-              expenseController: expenseC,
+              expenseController: expenseController,
               formKey: formKey,
             ).p12(),
             20.heightBox,
-            GlobalButton(
-              buttonText: 'Save',
-              onPressed: () {
-                if (formKey.currentState!.validate()) {}
-              },
-            ).p12().h(80),
+            AddExpenseButton(onSubmit: onSubmit).p12().h(80),
           ],
         ))));
   }

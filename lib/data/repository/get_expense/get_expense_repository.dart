@@ -1,18 +1,13 @@
 import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:multiple_result/src/result.dart';
 import 'package:your_tracks_riverpod/data/model/expense_entities.dart';
 import 'package:your_tracks_riverpod/data/model/expense_model.dart';
 import 'package:your_tracks_riverpod/shared/exception/base_exception.dart';
-
-import 'i_expense_repository.dart';
+import 'i_get_expense_repository.dart';
 
 class ExpenseRepository implements IExpenseRepository {
-  // final CollectionReference<Map<String, dynamic>>  expenseCollection;
-
-  // ExpenseRepository({required this.expenseCollection});
-
+  
   @override
   Future<Result<List<ExpenseModel>, APIException>> getExpenses() async {
     final expenseCollection = FirebaseFirestore.instance.collection('expenses');
@@ -35,8 +30,10 @@ class ExpenseRepository implements IExpenseRepository {
       rethrow;
     }
   }
-  /**
-   *   Future<List<Expense>> getExpenses() async {
+}
+/*
+ *
+ * Future<List<Expense>> getExpenses() async {
     try {
       return await expenseCollection.get().then((value) => value.docs
           .map((e) => Expense.fromEntity(ExpenseEntity.fromDocument(e.data())))
@@ -46,5 +43,4 @@ class ExpenseRepository implements IExpenseRepository {
       rethrow;
     }
   }
-  */
-}
+ */

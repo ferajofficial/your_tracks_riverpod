@@ -5,10 +5,12 @@ import 'package:your_tracks_riverpod/const/app_text.dart';
 class GlobalButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onPressed;
+  final bool isLoading;
   const GlobalButton({
     super.key,
     required this.buttonText,
     required this.onPressed,
+    this.isLoading = false,
   });
 
   @override
@@ -22,10 +24,12 @@ class GlobalButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        child: AppText(
-            text: buttonText,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: AppColors.kwhiteColor));
+        child: isLoading
+            ? const CircularProgressIndicator()
+            : AppText(
+                text: buttonText,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: AppColors.kwhiteColor));
   }
 }
