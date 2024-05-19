@@ -8,7 +8,6 @@ class ExpenseCard extends StatelessWidget {
     super.key,
     required this.transactionName,
     required this.transactionAmount,
-
     required this.onPressed,
   });
 
@@ -20,7 +19,8 @@ class ExpenseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.kPrimaryBgColor,
+      color: AppColors.kwhiteColor,
+      surfaceTintColor: AppColors.kPrimaryBgColor,
       elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
@@ -30,7 +30,7 @@ class ExpenseCard extends StatelessWidget {
         // )
       ),
       child: ListTile(
-        // tileColor: AppColors.ksecondaryBgColor.withOpacity(0.1),
+        // tileColor: AppColors.kPrimaryBgColor,
         // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         title: AppText(
           textAlign: TextAlign.left,

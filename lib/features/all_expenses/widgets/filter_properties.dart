@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 
 class FilterProperties extends StatelessWidget {
@@ -14,6 +15,7 @@ class FilterProperties extends StatelessWidget {
       children: [
         const AppText(text: 'Filter by : '),
         FilterChip(
+          backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           label: const AppText(text: 'All'),
@@ -21,6 +23,7 @@ class FilterProperties extends StatelessWidget {
         ),
         5.widthBox,
         FilterChip(
+          backgroundColor: AppColors.kPrimaryBgColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           label: const AppText(text: 'Amount'),
@@ -28,6 +31,7 @@ class FilterProperties extends StatelessWidget {
         ),
         5.widthBox,
         FilterChip(
+          backgroundColor: AppColors.kPrimaryBgColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           label: const AppText(text: 'Date'),
@@ -35,6 +39,7 @@ class FilterProperties extends StatelessWidget {
         ),
         5.widthBox,
         FilterChip(
+          backgroundColor: AppColors.kPrimaryBgColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           label: const AppText(text: 'Day'),

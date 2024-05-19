@@ -17,7 +17,7 @@ class AddExpenseButton extends ConsumerWidget {
       data: (addExpenseState) {
         return switch (addExpenseState) {
           InitialAddExpenseState() => GlobalButton(
-              buttonText: 'Add Ingredient',
+              buttonText: 'Add Expenses',
               onPressed: onSubmit,
             ),
           SubmittingAddExpenseState() => GlobalButton(

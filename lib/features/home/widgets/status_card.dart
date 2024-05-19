@@ -37,7 +37,7 @@ class StatusCard extends StatelessWidget {
             color: AppColors.kwhiteColor,
           ),
           const AppText(
-            text: '₹ 2,090,5',
+            text: '- ₹ 0000',
             fontSize: 35,
             fontWeight: FontWeight.bold,
             color: AppColors.kwhiteColor,
@@ -48,7 +48,7 @@ class StatusCard extends StatelessWidget {
             children: [
               Counters(
                 counterText: 'Total Income',
-                counterValue: '₹ 2,090,5',
+                counterValue: '₹ 00,00,000',
                 counterIconColor: AppColors.kIncIconColor,
                 counterIcon: Icons.arrow_drop_up,
               ),

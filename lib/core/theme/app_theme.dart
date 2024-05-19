@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ///Here we used flex color scheme
 class Themes {
   static ThemeData get theme => FlexThemeData.light(
-        scheme: FlexScheme.brandBlue,
+        scheme: FlexScheme.material,
         surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
         blendLevel: 20,
         appBarOpacity: 0.95,
@@ -19,7 +19,7 @@ class Themes {
         ),
         keyColors: const FlexKeyColors(
           useSecondary: true,
-          useTertiary: true,
+          useTertiary: false,
         ),
         pageTransitionsTheme: const PageTransitionsTheme(
           builders: {
@@ -36,7 +36,7 @@ class Themes {
         ///
       );
   static ThemeData get darkTheme => FlexThemeData.dark(
-        scheme: FlexScheme.brandBlue,
+        scheme: FlexScheme.material,
         surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
         blendLevel: 15,
         appBarStyle: FlexAppBarStyle.background,

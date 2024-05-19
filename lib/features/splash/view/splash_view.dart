@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -5,11 +6,14 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/bootstrap.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
+import 'package:your_tracks_riverpod/core/router/router.gr.dart';
 import 'package:your_tracks_riverpod/features/splash/controller/future_initializer.dart';
 import 'package:your_tracks_riverpod/shared/riverpod_ext/asynvalue_easy_when.dart';
 
 ///This view displayed for initializing all the required things on initialization.
 /// This will help for initial loading screen for apps with heavy things initialization;
+///
+
 class SplashView extends ConsumerStatefulWidget {
   /// If true ,this will defer the first frame upto all async initialization done.
   /// On deferring the screen will be blasnk upto the completion of initialization.
@@ -46,6 +50,9 @@ class _SplashViewState extends ConsumerState<SplashView> {
       ref.read(futureInitializerPod.future).whenComplete(
         () {
           RendererBinding.instance.allowFirstFrame();
+          Future.delayed(Duration(seconds: 3), () {
+            context.navigateTo(NavBarRoute());
+          });
         },
       );
     }
@@ -97,22 +104,7 @@ class LoaderChild extends StatefulWidget {
   State<LoaderChild> createState() => _LoaderChildState();
 }
 
-class _LoaderChildState extends State<LoaderChild>
-    with TickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 5),
-    vsync: this,
-  )..repeat(reverse: true);
-  // late final Animation<double> _animation = CurvedAnimation(
-  //   parent: _controller,
-  //   curve: Curves.elasticOut,
-  // );
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class _LoaderChildState extends State<LoaderChild> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

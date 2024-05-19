@@ -22,7 +22,7 @@ final deleteExpensePod =
   final result = await ref.watch(deleteProvider).deleteExpenses(expenseID);
   result.when(
     (success) {
-      ref.refresh(expensePod);
+      ref.invalidate(expensePod);
     },
     (error) => throw Exception(
       error.errorMessage,
