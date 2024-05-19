@@ -4,6 +4,9 @@ import 'package:your_tracks_riverpod/shared/exception/base_exception.dart';
 
 abstract class IExpenseRepository {
 
-Future<Result<List<ExpenseModel>,APIException>> getExpenses();
+  // INSERTION OF DATA
+  Future<Result<List<ExpenseModel>, APIException>> getExpenses();
 
+  // DELETION OF DATA
+  Future<Result<void, APIException>> deleteExpenses(String expenseID);
 }

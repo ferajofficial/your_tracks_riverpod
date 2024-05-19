@@ -15,3 +15,17 @@ final expensePod = FutureProvider.autoDispose<List<ExpenseModel>>((ref) async {
     ),
   );
 });
+
+// Future provider for deleting expenses
+final deleteExpensePod =
+    FutureProvider.family.autoDispose<void, String>((ref, expenseID) async {
+  final result = await ref.watch(deleteProvider).deleteExpenses(expenseID);
+  result.when(
+    (success) {
+      ref.refresh(expensePod);
+    },
+    (error) => throw Exception(
+      error.errorMessage,
+    ),
+  );
+});

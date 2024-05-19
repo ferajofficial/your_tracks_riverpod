@@ -27,9 +27,13 @@ class FilteredTiles extends StatelessWidget {
                 final expenseIndex = expenseData[index];
                 final transactionName = expenseIndex.expenseName;
                 final transactionAmount = expenseIndex.amount;
-                return ExpensesCards(
-                    transactionName: transactionName,
-                    transactionAmount: transactionAmount);
+                return ExpenseCard(
+                  transactionName: transactionName,
+                  transactionAmount: transactionAmount,
+                  onPressed: () {
+                    ref.read(deleteExpensePod(expenseIndex.expenseId));
+                  },
+                );
               },
             );
           },

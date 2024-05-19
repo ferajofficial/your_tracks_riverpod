@@ -10,29 +10,37 @@ class FilterProperties extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        const AppText(text: 'Filter by: '),
-        // FilterChip(
-        //   shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.circular(20)),
-        //   label: const AppText(text: 'Income'),
-        //   onSelected: (bool value) {},
-        // ),
-        10.widthBox,
+        const AppText(text: 'Filter by : '),
+        FilterChip(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          label: const AppText(text: 'All'),
+          onSelected: (bool value) {},
+        ),
+        5.widthBox,
         FilterChip(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           label: const AppText(text: 'Amount'),
           onSelected: (bool value) {},
         ),
-        10.widthBox,
+        5.widthBox,
         FilterChip(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           label: const AppText(text: 'Date'),
           onSelected: (bool value) {},
+        ),
+        5.widthBox,
+        FilterChip(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          label: const AppText(text: 'Day'),
+          onSelected: (bool value) {},
         )
       ],
-    );
+    ).p8();
   }
 }

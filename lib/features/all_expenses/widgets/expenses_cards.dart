@@ -3,15 +3,19 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 
-class ExpensesCards extends StatelessWidget {
-  const ExpensesCards({
+class ExpenseCard extends StatelessWidget {
+  const ExpenseCard({
     super.key,
     required this.transactionName,
     required this.transactionAmount,
+
+    required this.onPressed,
   });
 
   final String transactionName;
   final int transactionAmount;
+
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -48,24 +52,15 @@ class ExpensesCards extends StatelessWidget {
             ),
           ],
         ),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.delete_rounded,
-                color: AppColors.kSecondaryColor.withOpacity(0.8),
-              ),
+        trailing: CircleAvatar(
+          backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
+          child: IconButton(
+            onPressed: onPressed,
+            icon: const Icon(
+              Icons.delete_rounded,
+              color: AppColors.kwhiteColor,
             ),
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.edit_rounded,
-                  color: AppColors.kSecondaryColor.withOpacity(0.8),
-                  size: 25,
-                )),
-          ],
+          ),
         ),
       ).p8(),
     );
