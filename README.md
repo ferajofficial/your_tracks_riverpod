@@ -54,7 +54,7 @@ Ensure you have the following installed on your local development environment:
 1. **Clone the repository**
 
     ```bash
-    git clone https://github.com/yourusername/your-tracks.git
+    git clone https://github.com/ferajofficial/your_tracks_riverpod
     cd your-tracks
     ```
 
@@ -146,3 +146,5 @@ We welcome contributions to the Your Tracks project! Please read our [contributi
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+##### ---------------------💐 THANKS 💐---------------------
