@@ -36,9 +36,9 @@ class FilteredTiles extends StatelessWidget {
           loadingWidget: () => const Center(
             child: CircularProgressIndicator(),
           ),
-          errorWidget: (error, stack) => Center(
+          errorWidget: (error, stack) => const Center(
             child: AppText(
-              text: 'Error: $error',
+              text: 'Error : NO DATA FOUND \n Please Add Some..',
               color: Colors.red,
             ),
           ),

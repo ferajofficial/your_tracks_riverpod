@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/bootstrap.dart';
+import 'package:your_tracks_riverpod/const/app_colors.dart';
+import 'package:your_tracks_riverpod/const/app_text.dart';
 import 'package:your_tracks_riverpod/features/splash/controller/future_initializer.dart';
 import 'package:your_tracks_riverpod/shared/riverpod_ext/asynvalue_easy_when.dart';
 
@@ -97,13 +100,13 @@ class LoaderChild extends StatefulWidget {
 class _LoaderChildState extends State<LoaderChild>
     with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 2),
+    duration: const Duration(seconds: 5),
     vsync: this,
   )..repeat(reverse: true);
-  late final Animation<double> _animation = CurvedAnimation(
-    parent: _controller,
-    curve: Curves.elasticOut,
-  );
+  // late final Animation<double> _animation = CurvedAnimation(
+  //   parent: _controller,
+  //   curve: Curves.elasticOut,
+  // );
   @override
   void dispose() {
     _controller.dispose();
@@ -112,39 +115,39 @@ class _LoaderChildState extends State<LoaderChild>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        color: Colors.white,
-        child: Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
-            Center(
-              child: RotationTransition(
-                turns: _animation,
-                child: const FlutterLogo(
-                  size: 100,
-                ),
-              ),
-            ),
-            const Positioned(
-              bottom: 44,
-              child: CircularProgressIndicator(
-                  // color: Colors.amber,
-                  ),
-            ),
-            const Positioned(
-              bottom: 16,
-              child: Material(
-                  child: Text(
-                "Welcome to Riverpod Simple Architecture App",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              )),
-            ),
-          ],
-        ),
-      ),
+    return Scaffold(
+      backgroundColor: AppColors.ksecondaryBgColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const AppText(
+            text: 'YOUR',
+            fontSize: 125,
+            fontWeight: FontWeight.w600,
+            color: AppColors.kwhiteColor,
+          ),
+          const AppText(
+            textAlign: TextAlign.right,
+            text: 'tracks.',
+            fontSize: 80,
+            fontWeight: FontWeight.w600,
+            color: AppColors.kwhiteColor,
+          ),
+          25.heightBox,
+          Image.asset(
+            'assets/payment.png',
+            color: AppColors.kwhiteColor,
+          ).p16().objectCenter().h(250),
+          25.heightBox,
+          const AppText(
+            text: 'Track your expenses,\nShape your future.',
+            color: AppColors.kwhiteColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ).objectBottomLeft(),
+        ],
+      ).p12(),
     );
   }
 }

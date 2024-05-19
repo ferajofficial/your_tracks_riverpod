@@ -26,6 +26,16 @@ class ExpenseSummaryView extends StatefulWidget {
 class _ExpenseSummaryViewState extends State<ExpenseSummaryView> {
   @override
   Widget build(BuildContext context) {
+// Static Category List
+    final List<Map<String, String>> spendingData = [
+      {'title': 'Groceries', 'amount': '₹ 2000 .00'},
+      {'title': 'Entertainment', 'amount': '₹ 1150.00'},
+      {'title': 'Utilities', 'amount': '₹ 1850.00'},
+      {'title': 'Transport', 'amount': '₹ 3000.00'},
+      {'title': 'Dining Out', 'amount': '₹ 1200.00'},
+      {'title': 'Miscellaneous', 'amount': '₹ 500.00'},
+    ];
+
     return Scaffold(
         backgroundColor: AppColors.kPrimaryBgColor,
         appBar: AppBar(
@@ -43,7 +53,7 @@ class _ExpenseSummaryViewState extends State<ExpenseSummaryView> {
                 color: Colors.grey.shade400,
               ),
               AppText(
-                  text: '₹ 2,00,09',
+                  text: '₹ 2,05,00 . 00',
                   fontSize: 28,
                   fontWeight: FontWeight.w700,
                   color: AppColors.kBlackColor.withOpacity(0.6)),
@@ -72,9 +82,7 @@ class _ExpenseSummaryViewState extends State<ExpenseSummaryView> {
                 ),
               ),
               10.heightBox,
-              const Expanded(
-                child: SpendingCards(),
-              ),
+              Expanded(child: SpendingCards(spendingData: spendingData)),
             ],
           ).p12(),
         ));

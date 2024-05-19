@@ -8,10 +8,12 @@ class RecentExpensesCards extends StatelessWidget {
     super.key,
     required this.transactionName,
     required this.transactionAmount,
+    required this.date,
   });
 
   final String transactionName;
   final int transactionAmount;
+  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +64,8 @@ class RecentExpensesCards extends StatelessWidget {
             ).w(60),
             AppText(
               textAlign: TextAlign.right,
-              text: 'hgf',
-              color: AppColors.kBlackColor.withOpacity(0.2),
+              text: date.toDateString(),
+              color: AppColors.kBlackColor.withOpacity(0.4),
               fontSize: 13,
               fontWeight: FontWeight.w500,
             ),

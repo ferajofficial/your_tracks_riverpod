@@ -28,22 +28,21 @@ class RecentExpenses extends StatelessWidget {
                   final expenseIndex = expenseData[index];
                   final transactionName = expenseIndex.expenseName;
                   final transactionAmount = expenseIndex.amount;
+                  final transactionDate = expenseIndex.date;
                   return RecentExpensesCards(
                       transactionName: transactionName,
-                      transactionAmount: transactionAmount);
+                      transactionAmount: transactionAmount, 
+                      date: transactionDate.toLocal().toString()
+                      );
                 },
               ),
             );
           },
-          loadingWidget: () => const Center(
-            child: CircularProgressIndicator(),
-          ),
-          errorWidget: (error, stack) => Center(
-            child: AppText(
-              text: 'Error: $error',
-              color: Colors.red,
-            ),
-          ),
+          loadingWidget: () => const CircularProgressIndicator().centered(),
+          errorWidget: (error, stack) => const AppText(
+            text: 'Error : NO DATA FOUND \n Please Add Some..',
+            color: Colors.red,
+          ).centered(),
         );
       },
     );

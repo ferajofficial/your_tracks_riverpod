@@ -4,8 +4,11 @@ import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 
 class SpendingCards extends StatelessWidget {
+  final List<Map<String, String>> spendingData;
+
   const SpendingCards({
     super.key,
+    required this.spendingData,
   });
 
   @override
@@ -14,8 +17,9 @@ class SpendingCards extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),
-      itemCount: 6,
+      itemCount: spendingData.length,
       itemBuilder: (BuildContext context, int index) {
+        final item = spendingData[index];
         return Container(
           decoration: BoxDecoration(
               color: AppColors.kPrimaryBgColor,
@@ -39,15 +43,16 @@ class SpendingCards extends StatelessWidget {
                   color: AppColors.kwhiteColor,
                 ),
               ),
-              const AppText(
-                text: 'Category',
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-              ),
-              const AppText(
-                text: '₹ 2,00,09',
+              AppText(
+                text: item['title'] ?? '',
                 fontSize: 13,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w500,
+                color: AppColors.kBlackColor.withOpacity(0.5),
+              ),
+              AppText(
+                text: item['amount'] ?? '',
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
               ),
             ],
           ),
