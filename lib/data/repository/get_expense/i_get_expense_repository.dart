@@ -3,7 +3,6 @@ import 'package:your_tracks_riverpod/data/model/expense_model.dart';
 import 'package:your_tracks_riverpod/shared/exception/base_exception.dart';
 
 abstract class IExpenseRepository {
-
   // INSERTION OF DATA
   Future<Result<List<ExpenseModel>, APIException>> getExpenses();
 

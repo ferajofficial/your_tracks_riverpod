@@ -24,14 +24,8 @@ class ExpenseCard extends StatelessWidget {
       elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
-        // side: BorderSide(
-        //   color: AppColors.ksecondaryBgColor.withOpacity(1),
-        //   width: 1,
-        // )
       ),
       child: ListTile(
-        // tileColor: AppColors.kPrimaryBgColor,
-        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         title: AppText(
           textAlign: TextAlign.left,
           text: transactionName,
