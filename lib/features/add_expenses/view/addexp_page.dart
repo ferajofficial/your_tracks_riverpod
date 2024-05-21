@@ -9,8 +9,8 @@ import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 import 'package:your_tracks_riverpod/data/model/expense_model.dart';
 import 'package:your_tracks_riverpod/features/add_expenses/controllers/add_expense_pod.dart';
+import 'package:your_tracks_riverpod/features/add_expenses/widgets/addexpense_button.dart';
 import 'package:your_tracks_riverpod/features/add_expenses/widgets/expense_form.dart';
-import 'package:your_tracks_riverpod/features/add_expenses/widgets/save_button.dart';
 import 'package:your_tracks_riverpod/features/home/controllers/get_expense_pod.dart';
 
 @RoutePage()
@@ -31,9 +31,9 @@ class AddExpenseView extends ConsumerStatefulWidget {
 }
 
 class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
-  TextEditingController date = TextEditingController();
-  TextEditingController name = TextEditingController();
-  TextEditingController expenseController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController amountController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   CategoryList? selectedCategory;
   String expenseId = const Uuid().v1();
@@ -42,23 +42,29 @@ class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
   void initState() {
     super.initState();
 
-    date.text = DateFormat('dd.MM.yyyy').format(DateTime.now().toLocal());
+    dateController.text =
+        DateFormat('dd.MM.yyyy').format(DateTime.now().toLocal());
   }
 
   void onSubmit() {
     try {
-      if (date.text.isEmptyOrNull ||
-          name.text.isEmptyOrNull ||
-          expenseController.text.isEmptyOrNull ||
-          date.text == '' ||
-          name.text == '' ||
-          expenseController.text == '') {
-        context.showToast(msg: 'Please fill all the fields');
+      if (dateController.text.isEmptyOrNull ||
+          nameController.text.isEmptyOrNull ||
+          amountController.text.isEmptyOrNull ||
+          dateController.text == '' ||
+          nameController.text == '' ||
+          amountController.text == '') {
+        context.showToast(
+          msg: 'Fields are empty..!!',
+          bgColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
+          textColor: AppColors.kwhiteColor,
+          textSize: 16,
+        );
       } else {
         ref.read(addExpenseRepoPod.notifier).addExpense(
             expenseModel: ExpenseModel(
-              amount: int.parse(expenseController.text),
-              expenseName: name.text,
+              amount: int.parse(amountController.text),
+              expenseName: nameController.text,
               expenseId: expenseId,
               date: DateTime.now(),
               categoryId: '',
@@ -66,6 +72,13 @@ class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
             onAddExpense: () {
               ref.invalidate(expensePod);
               context.maybePop();
+              context.showToast(
+                position: VxToastPosition.center,
+                msg: 'Expense Added Successfully',
+                bgColor: AppColors.ksecondaryBgColor,
+                textColor: AppColors.kwhiteColor,
+                textSize: 16,
+              );
             });
       }
     } catch (e) {
@@ -80,13 +93,13 @@ class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
         appBar: AppBar(
           backgroundColor: AppColors.kPrimaryBgColor,
           leading: CircleAvatar(
-            backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
+            backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.8),
             child: IconButton(
               onPressed: () {
                 context.maybePop();
               },
               icon: const Icon(
-                Icons.arrow_back,
+                Icons.arrow_back_rounded,
                 color: AppColors.kwhiteColor,
               ),
             ),
@@ -105,13 +118,15 @@ class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
               fontWeight: FontWeight.w500,
             ).p(10),
             ExpenseForm(
-              dateController: date,
-              nameController: name,
-              expenseController: expenseController,
+              dateController: dateController,
+              nameController: nameController,
+              expenseController: amountController,
               formKey: formKey,
             ).p12(),
             20.heightBox,
-            AddExpenseButton(onSubmit: onSubmit).p12().h(80),
+            AddExpenseButton(onSubmit: onSubmit)
+                .h(50)
+                .pOnly(left: 35, right: 35),
           ],
         ))));
   }

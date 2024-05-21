@@ -16,32 +16,44 @@ class FilterProperties extends StatelessWidget {
         const AppText(text: 'Filter by : '),
         FilterChip(
           backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+            side: BorderSide(
+                color: AppColors.ksecondaryBgColor.withOpacity(0.5), width: 1),
+          ),
           label: const AppText(text: 'All'),
           onSelected: (bool value) {},
         ),
         5.widthBox,
         FilterChip(
           backgroundColor: AppColors.kPrimaryBgColor,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+            side: BorderSide(
+                color: AppColors.ksecondaryBgColor.withOpacity(0.5), width: 1),
+          ),
           label: const AppText(text: 'Amount'),
           onSelected: (bool value) {},
         ),
         5.widthBox,
         FilterChip(
           backgroundColor: AppColors.kPrimaryBgColor,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+            side: BorderSide(
+                color: AppColors.ksecondaryBgColor.withOpacity(0.5), width: 1),
+          ),
           label: const AppText(text: 'Date'),
           onSelected: (bool value) {},
         ),
         5.widthBox,
         FilterChip(
           backgroundColor: AppColors.kPrimaryBgColor,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+            side: BorderSide(
+                color: AppColors.ksecondaryBgColor.withOpacity(0.5), width: 1),
+          ),
           label: const AppText(text: 'Day'),
           onSelected: (bool value) {},
         )

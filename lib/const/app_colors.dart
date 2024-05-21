@@ -4,7 +4,7 @@ class AppColors {
   AppColors._();
   //BG colors
   static const Color kPrimaryBgColor = Color(0xFFFFFFFF);
-  static const Color ksecondaryBgColor = Color.fromARGB(255, 81, 95, 250);
+  static const Color ksecondaryBgColor = Colors.deepPurpleAccent;
 
   //text color
   static const Color kwhiteColor = Colors.white;

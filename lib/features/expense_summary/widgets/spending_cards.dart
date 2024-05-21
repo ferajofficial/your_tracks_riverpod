@@ -37,12 +37,13 @@ class SpendingCards extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               CircleAvatar(
-                backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
-                child: const Icon(
-                  Icons.shopping_cart,
-                  color: AppColors.kwhiteColor,
-                ),
-              ),
+                  backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
+                  child: Image.asset(item['image'] ?? '')
+                  //  Icon(
+                  //   item['icon'] ?? '',
+                  //   color: AppColors.kwhiteColor,
+                  // ),
+                  ),
               AppText(
                 text: item['title'] ?? '',
                 fontSize: 13,

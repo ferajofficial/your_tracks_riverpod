@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ///Here we used flex color scheme
 class Themes {
   static ThemeData get theme => FlexThemeData.light(
-        scheme: FlexScheme.material,
+        scheme: FlexScheme.indigoM3,
         surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
         blendLevel: 20,
         appBarOpacity: 0.95,
@@ -36,7 +36,7 @@ class Themes {
         ///
       );
   static ThemeData get darkTheme => FlexThemeData.dark(
-        scheme: FlexScheme.material,
+        scheme: FlexScheme.indigoM3,
         surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
         blendLevel: 15,
         appBarStyle: FlexAppBarStyle.background,

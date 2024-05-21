@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 import 'package:your_tracks_riverpod/features/all_expenses/widgets/expenses_cards.dart';
 import 'package:your_tracks_riverpod/features/home/controllers/get_expense_pod.dart';
@@ -31,6 +32,13 @@ class FilteredTiles extends StatelessWidget {
                   transactionName: transactionName,
                   transactionAmount: transactionAmount,
                   onPressed: () {
+                    context.showToast(
+                      position: VxToastPosition.center,
+                      msg: 'Expense Deleted Successfully',
+                      bgColor: AppColors.ksecondaryBgColor,
+                      textColor: AppColors.kwhiteColor,
+                      textSize: 16,
+                    );
                     ref.read(deleteExpensePod(expenseIndex.expenseId));
                   },
                 );

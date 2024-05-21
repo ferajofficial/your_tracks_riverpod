@@ -18,7 +18,9 @@ class RecentExpensesCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.ksecondaryBgColor.withOpacity(0.1),
+      color: AppColors.kwhiteColor,
+      surfaceTintColor: AppColors.ksecondaryBgColor,
+      elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
         side: BorderSide(
@@ -26,13 +28,12 @@ class RecentExpensesCards extends StatelessWidget {
           width: 0.5,
         ),
       ),
-      elevation: 0,
       child: ListTile(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
         leading: CircleAvatar(
-          backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
+          backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.6),
           child: const Icon(
             Icons.shopify_rounded,
             color: AppColors.kwhiteColor,

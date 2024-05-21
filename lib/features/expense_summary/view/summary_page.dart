@@ -27,13 +27,41 @@ class _ExpenseSummaryViewState extends State<ExpenseSummaryView> {
   @override
   Widget build(BuildContext context) {
 // Static Category List
+    // final List<Map<String, String>> spendingData = [
+    //   {'title': 'Groceries', 'amount': '₹ 2000 .00',},
+    //   {'title': 'Entertainment', 'amount': '₹ 1150.00'},
+    //   {'title': 'Utilities', 'amount': '₹ 1850.00'},
+    //   {'title': 'Transport', 'amount': '₹ 3000.00'},
+    //   {'title': 'Dining Out', 'amount': '₹ 1200.00'},
+    //   {'title': 'Miscellaneous', 'amount': '₹ 500.00'},
+    // ];
     final List<Map<String, String>> spendingData = [
-      {'title': 'Groceries', 'amount': '₹ 2000 .00'},
-      {'title': 'Entertainment', 'amount': '₹ 1150.00'},
-      {'title': 'Utilities', 'amount': '₹ 1850.00'},
-      {'title': 'Transport', 'amount': '₹ 3000.00'},
-      {'title': 'Dining Out', 'amount': '₹ 1200.00'},
-      {'title': 'Miscellaneous', 'amount': '₹ 500.00'},
+      {'title': 'Groceries', 'amount': '₹ 2000.00', 'image': 'assets/cart.png'},
+      {
+        'title': 'Entertainment',
+        'amount': '₹ 1150.00',
+        'image': 'assets/movie.png'
+      },
+      {
+        'title': 'Utilities',
+        'amount': '₹ 1850.00',
+        'image': 'assets/utils.png'
+      },
+      {
+        'title': 'Transport',
+        'amount': '₹ 3000.00',
+        'image': 'assets/travel.png'
+      },
+      {
+        'title': 'Dining Out',
+        'amount': '₹ 1200.00',
+        'image': 'assets/food.png'
+      },
+      {
+        'title': 'Miscellaneous',
+        'amount': '₹ 500.00',
+        'image': 'assets/miscs.png'
+      },
     ];
 
     return Scaffold(

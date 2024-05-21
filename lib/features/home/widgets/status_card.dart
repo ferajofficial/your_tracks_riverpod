@@ -14,7 +14,7 @@ class StatusCard extends StatelessWidget {
     return Container(
       width: context.screenWidth,
       decoration: BoxDecoration(
-        color: AppColors.ksecondaryBgColor.withOpacity(0.5),
+        color: AppColors.ksecondaryBgColor.withOpacity(0.6),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(

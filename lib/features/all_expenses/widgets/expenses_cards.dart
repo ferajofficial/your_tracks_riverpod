@@ -20,10 +20,14 @@ class ExpenseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: AppColors.kwhiteColor,
-      surfaceTintColor: AppColors.kPrimaryBgColor,
+      surfaceTintColor: AppColors.ksecondaryBgColor,
       elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
+        side: BorderSide(
+          color: AppColors.ksecondaryBgColor.withOpacity(0.5),
+          width: 1,
+        ),
       ),
       child: ListTile(
         title: AppText(
@@ -46,16 +50,36 @@ class ExpenseCard extends StatelessWidget {
             ),
           ],
         ),
-        trailing: CircleAvatar(
-          backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
-          child: IconButton(
-            onPressed: onPressed,
-            icon: const Icon(
-              Icons.delete_rounded,
-              color: AppColors.kwhiteColor,
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CircleAvatar(
+              backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.8),
+              child: GestureDetector(
+                onTap: () {
+                  // onPressed();
+                },
+                child: Image.asset(
+                  'assets/edit.png',
+                  color: AppColors.kwhiteColor,
+                ).h(30),
+              ),
             ),
-          ),
-        ),
+            CircleAvatar(
+              backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.8),
+              child: GestureDetector(
+                onTap: () {
+                  onPressed();
+                },
+                child: Image.asset(
+                  'assets/delete.png',
+                  color: AppColors.kwhiteColor,
+                ).h(30),
+              ),
+            ),
+          ],
+        ).w(100),
       ).p8(),
     );
   }

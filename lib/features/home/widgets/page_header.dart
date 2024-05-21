@@ -14,13 +14,13 @@ class PageHeader extends StatelessWidget {
       children: [
         CircleAvatar(
             radius: 25,
-            backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
+            backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.6),
             child: IconButton(
                 onPressed: () {
                   // context.navigateTo(const ProfileRoute());
                 },
-                icon: const Icon(Icons.person,
-                    color: AppColors.kBlackColor, size: 30))),
+                icon: const Icon(Icons.person_rounded,
+                    color: AppColors.kwhiteColor, size: 35))),
         const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

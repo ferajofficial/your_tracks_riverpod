@@ -76,6 +76,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
             controller: widget.expenseController,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
+              fillColor: AppColors.kwhiteColor,
               hintText: 'Enter Expenses',
               hintStyle: TextStyle(
                 textBaseline: TextBaseline.alphabetic,
@@ -118,6 +119,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
             keyboardType: TextInputType.text,
             controller: widget.nameController,
             decoration: InputDecoration(
+              fillColor: AppColors.kwhiteColor,
               hintText: 'Enter Name',
               hintStyle: TextStyle(
                 textBaseline: TextBaseline.alphabetic,
@@ -145,6 +147,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
             readOnly: true,
             controller: dateController,
             decoration: InputDecoration(
+              fillColor: AppColors.kwhiteColor,
               hintText: 'Select Date',
               hintStyle: TextStyle(
                 textBaseline: TextBaseline.alphabetic,
@@ -164,6 +167,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
           ).p(10),
           10.heightBox,
           DropdownButtonFormField<CategoryList>(
+            dropdownColor: AppColors.kwhiteColor,
             hint: const Text('Select a category'),
             value: selectedCategory,
             onChanged: (CategoryList? newValue) {
@@ -184,6 +188,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
               );
             }).toList(),
             decoration: InputDecoration(
+              fillColor: AppColors.kwhiteColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
               ),

@@ -41,6 +41,7 @@ class _AllExpensesPageViewState extends State<AllExpensesPageView> {
                 indent: 25,
                 endIndent: 25,
                 thickness: 0.8,
+                color: AppColors.ksecondaryBgColor,
               ),
               Expanded(
                 child: const FilteredTiles().p12(),
