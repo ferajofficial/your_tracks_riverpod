@@ -8,13 +8,15 @@ class ExpenseCard extends StatelessWidget {
     super.key,
     required this.transactionName,
     required this.transactionAmount,
-    required this.onPressed,
+    required this.onPressed2,
+    required this.onPressed1,
   });
 
   final String transactionName;
   final int transactionAmount;
 
-  final VoidCallback onPressed;
+  final VoidCallback onPressed1;
+  final VoidCallback onPressed2;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,7 @@ class ExpenseCard extends StatelessWidget {
               backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.8),
               child: GestureDetector(
                 onTap: () {
-                  // onPressed();
+                  onPressed1();
                 },
                 child: Image.asset(
                   'assets/edit.png',
@@ -70,7 +72,7 @@ class ExpenseCard extends StatelessWidget {
               backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.8),
               child: GestureDetector(
                 onTap: () {
-                  onPressed();
+                  onPressed2();
                 },
                 child: Image.asset(
                   'assets/delete.png',
