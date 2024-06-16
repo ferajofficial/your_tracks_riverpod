@@ -163,7 +163,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
-            onTap: () => _selectDate(context),
+            // onTap: () => _selectDate(context),
           ).p(10),
           10.heightBox,
           DropdownButtonFormField<CategoryList>(

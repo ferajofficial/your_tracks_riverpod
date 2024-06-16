@@ -8,9 +8,18 @@ class AppRouter extends $AppRouter {
   late final List<AutoRoute> routes = [
     AdaptiveRoute(page: AddExpRoute.page, path: '/add-expense'),
     AdaptiveRoute(
+      page: OnboardingRoute.page, path: '/onboarding',
+      // initial: true,
+    ),
+    AdaptiveRoute(page: SigninRoute.page, path: '/signin', initial: true),
+    AdaptiveRoute(
+      page: SignupRoute.page,
+      path: '/signup',
+    ),
+    AdaptiveRoute(
         page: NavBarRoute.page,
         path: '/navbar',
-        initial: true,
+        // initial: true,
         children: [
           AdaptiveRoute(page: HomeRoute.page),
           AdaptiveRoute(page: AllExpensesRoute.page),
