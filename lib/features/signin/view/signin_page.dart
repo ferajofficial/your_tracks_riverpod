@@ -33,75 +33,79 @@ class _SigninViewState extends State<SigninView> {
     return Scaffold(
         backgroundColor: AppColors.kPrimaryBgColor,
         body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SvgPicture.asset('assets/signin.svg', height: 350).p12(),
-              const SigninText().p8(),
-              SigninForm(
-                formKey: formkey,
-                // emailController: TextEditingController(),
-                // passwordController: TextEditingController(),
-              ).p8(),
-              GlobalButton(
-                  buttonText: 'Sign In',
-                  onPressed: () {
-                    
-                    // if (formkey.currentState!.validate()) {
-                    //   context.router.push(const HomeRoute());
-                    // }
-                  }).w(double.infinity).h(55).p8(),
-              10.heightBox,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const AppText(
-                    text: 'Don\'t have an account?',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      context.router.push(const SignupRoute());
-                    },
-                    child: const AppText(
-                      text: ' Sign Up',
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SvgPicture.asset('assets/signin.svg', height: 350).p12(),
+                const SigninText().p8(),
+                SigninForm(
+                  formKey: formkey,
+                  // emailController: TextEditingController(),
+                  // passwordController: TextEditingController(),
+                ).p8(),
+                GlobalButton(
+                        buttonText: 'Sign In',
+                        onPressed: () {
+                          // if (formkey.currentState!.validate()) {
+                          //   context.router.push(const HomeRoute());
+                          // }
+                        })
+                    .w(double.infinity)
+                    .h(55)
+                    .p8(),
+                10.heightBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const AppText(
+                      text: 'Don\'t have an account?',
                       fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.ksecondaryBgColor,
+                      fontWeight: FontWeight.w500,
                     ),
-                  ),
-                ],
-              ),
-              10.heightBox,
-              ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: AppColors.kwhiteColor,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: AppColors.ksecondaryBgColor,
-                        width: 1.5,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const AppText(
-                        text: 'Sign in with',
-                        fontSize: 18,
+                    GestureDetector(
+                      onTap: () {
+                        context.router.push(const SignupRoute());
+                      },
+                      child: const AppText(
+                        text: ' Sign Up',
+                        fontSize: 15,
                         fontWeight: FontWeight.w600,
+                        color: AppColors.ksecondaryBgColor,
                       ),
-                      20.widthBox,
-                      SvgPicture.asset('assets/google.svg', height: 20),
-                    ],
-                  )).w(double.infinity).h(55).p8(),
-            ],
-          ).p12(),
+                    ),
+                  ],
+                ),
+                10.heightBox,
+                ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      backgroundColor: AppColors.kwhiteColor,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          color: AppColors.ksecondaryBgColor,
+                          width: 1.5,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const AppText(
+                          text: 'Sign in with',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        20.widthBox,
+                        SvgPicture.asset('assets/google.svg', height: 20),
+                      ],
+                    )).w(double.infinity).h(55).p8(),
+              ],
+            ).p12(),
+          ),
         ));
   }
 }

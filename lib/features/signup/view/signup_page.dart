@@ -33,50 +33,52 @@ class _SignupViewState extends State<SignupView> {
     return Scaffold(
         backgroundColor: AppColors.kPrimaryBgColor,
         body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SvgPicture.asset('assets/signup.svg', height: 350).p12(),
-              const SigninText().p8(),
-              SignupForm(formKey: formKey).p8(),
-              20.heightBox,
-              GlobalButton(
-                  buttonText: 'Sign Up',
-                  onPressed: () {
-                    context.router.push(const HomeRoute());
-                    // if (formkey.currentState!.validate()) {
-                    //   context.router.push(const HomeRoute());
-                    // }
-                  }).w(double.infinity).h(55).p8(),
-              10.heightBox,
-              ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: AppColors.kwhiteColor,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: AppColors.ksecondaryBgColor,
-                        width: 1.5,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SvgPicture.asset('assets/signup.svg', height: 350).p12(),
+                const SigninText().p8(),
+                SignupForm(formKey: formKey).p8(),
+                20.heightBox,
+                GlobalButton(
+                    buttonText: 'Sign Up',
+                    onPressed: () {
+                      context.router.push(const HomeRoute());
+                      // if (formkey.currentState!.validate()) {
+                      //   context.router.push(const HomeRoute());
+                      // }
+                    }).w(double.infinity).h(55).p8(),
+                10.heightBox,
+                ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      backgroundColor: AppColors.kwhiteColor,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          color: AppColors.ksecondaryBgColor,
+                          width: 1.5,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      borderRadius: BorderRadius.circular(10),
                     ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const AppText(
-                        text: 'Sign up with',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      20.widthBox,
-                      SvgPicture.asset('assets/google.svg', height: 20),
-                    ],
-                  )).w(double.infinity).h(55).p8(),
-            ],
-          ).p12(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const AppText(
+                          text: 'Sign up with',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        20.widthBox,
+                        SvgPicture.asset('assets/google.svg', height: 20),
+                      ],
+                    )).w(double.infinity).h(55).p8(),
+              ],
+            ).p12(),
+          ),
         ));
   }
 }

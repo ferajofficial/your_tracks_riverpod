@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lottie/lottie.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
-import 'package:your_tracks_riverpod/const/app_text.dart';
 import 'package:your_tracks_riverpod/features/all_expenses/widgets/expenses_cards.dart';
 import 'package:your_tracks_riverpod/features/home/controllers/get_expense_pod.dart';
 import 'package:your_tracks_riverpod/shared/global_button.dart';
@@ -64,11 +64,15 @@ class FilteredTiles extends StatelessWidget {
           loadingWidget: () => const Center(
             child: CircularProgressIndicator(),
           ),
-          errorWidget: (error, stack) => const Center(
-            child: AppText(
-              text: 'Error : NO DATA FOUND \n Please Add Some..',
-              color: Colors.red,
+          errorWidget: (error, stack) => Center(
+            child: Lottie.asset(
+              'assets/no_data.json', // Path to your Lottie JSON file
+              height: 250,
             ),
+            // AppText(
+            //   text: 'Error : NO DATA FOUND \n Please Add Some..',
+            //   color: Colors.red,
+            // ),
           ),
         );
       },
@@ -80,38 +84,36 @@ void showExpenseDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) {
-      return SizedBox(
-        child: AlertDialog(
-          elevation: 5,
-          backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.3),
-          title: const Text('Edit Expense'),
-          content: const Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Expense Name',
-                  hintText: 'Enter Expense Name',
-                ),
+      return AlertDialog(
+        elevation: 5,
+        backgroundColor: AppColors.ksecondaryBgColor.withOpacity(0.3),
+        title: const Text('Edit Expense'),
+        content: const Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Expense Name',
+                hintText: 'Enter Expense Name',
               ),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Expense Amount',
-                  hintText: 'Enter Expense Amount',
-                ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Expense Amount',
+                hintText: 'Enter Expense Amount',
               ),
-            ],
-          ),
-          actions: [
-            GlobalButton(
-                buttonText: 'Save',
-                onPressed: () {
-                  context.maybePop();
-                  //  edited expense logic
-                })
+            ),
           ],
-        ).p12(),
-      ).h(200).w(200);
+        ),
+        actions: [
+          GlobalButton(
+              buttonText: 'Save',
+              onPressed: () {
+                context.maybePop();
+                //  edited expense logic
+              })
+        ],
+      ).p12().h(200).w(200);
     },
   );
 }

@@ -1,4 +1,3 @@
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -13,18 +12,18 @@ class NavButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-            decoration: const BoxDecoration(
-              color: AppColors.ksecondaryBgColor,
-              shape: BoxShape.circle,
-            ),
-            child: IconButton(
-              onPressed: () {
-                context.router.replace(const HomeRoute());
-              },
-              icon: const Icon(
-                Icons.arrow_forward_ios_rounded,
-                color: AppColors.kwhiteColor,
-              ),
-            ).p8());
+        decoration: const BoxDecoration(
+          color: AppColors.ksecondaryBgColor,
+          shape: BoxShape.circle,
+        ),
+        child: IconButton(
+          onPressed: () {
+            context.router.replace(const SigninRoute());
+          },
+          icon: const Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: AppColors.kwhiteColor,
+          ),
+        ).p8());
   }
 }

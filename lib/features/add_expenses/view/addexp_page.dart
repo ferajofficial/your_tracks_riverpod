@@ -42,8 +42,7 @@ class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
   void initState() {
     super.initState();
 
-    dateController.text =
-        DateFormat('dd.MM.yyyy').format(DateTime.now().toLocal());
+    dateController.text = DateFormat('dd.MM.yyyy').format(DateTime.now().toLocal());
   }
 
   void onSubmit() {
@@ -55,8 +54,8 @@ class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
           nameController.text == '' ||
           amountController.text == '') {
         context.showToast(
-          msg: 'Fields are empty..!!',
-          bgColor: AppColors.ksecondaryBgColor.withOpacity(0.5),
+          msg: 'Fields were not empty..!!',
+          bgColor: AppColors.kExpIconColor,
           textColor: AppColors.kwhiteColor,
           textSize: 16,
         );
@@ -123,10 +122,8 @@ class _AddExpenseViewState extends ConsumerState<AddExpenseView> {
               expenseController: amountController,
               formKey: formKey,
             ).p12(),
-            20.heightBox,
-            AddExpenseButton(onSubmit: onSubmit)
-                .h(50)
-                .pOnly(left: 35, right: 35),
+            25.heightBox,
+            AddExpenseButton(onSubmit: onSubmit).h(50).p16(),
           ],
         ))));
   }

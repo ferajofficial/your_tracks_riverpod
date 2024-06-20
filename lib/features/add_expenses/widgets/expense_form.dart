@@ -47,8 +47,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
   @override
   void initState() {
     super.initState();
-    dateController.text =
-        DateFormat('dd.MM.yyyy').format(DateTime.now().toLocal());
+    dateController.text = DateFormat('dd.MM.yyyy').format(DateTime.now().toLocal());
   }
 
   Future<void> _selectDate(BuildContext context) async {
@@ -83,15 +82,13 @@ class _ExpenseFormState extends State<ExpenseForm> {
                 color: AppColors.kBlackColor,
                 fontFamily: GoogleFonts.poppins().fontFamily,
               ),
-              labelText: 'Expense',
+              labelText: 'Amount in rupees',
               labelStyle: TextStyle(
                 color: AppColors.kBlackColor,
                 fontFamily: GoogleFonts.poppins().fontFamily,
               ),
               prefixIcon: const Icon(
-                IconData(0x20B9,
-                    fontFamily:
-                        'MaterialIcons'), // Unicode for Indian rupee symbol
+                IconData(0x20B9, fontFamily: 'MaterialIcons'), // Unicode for Indian rupee symbol
                 color: AppColors.kBlackColor,
               ),
               border: OutlineInputBorder(
@@ -145,6 +142,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
           10.heightBox,
           TextFormField(
             readOnly: true,
+            // enabled: false,
             controller: dateController,
             decoration: InputDecoration(
               fillColor: AppColors.kwhiteColor,

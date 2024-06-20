@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,7 +5,6 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/bootstrap.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
-import 'package:your_tracks_riverpod/core/router/router.gr.dart';
 import 'package:your_tracks_riverpod/features/splash/controller/future_initializer.dart';
 import 'package:your_tracks_riverpod/shared/riverpod_ext/asynvalue_easy_when.dart';
 
@@ -50,9 +48,9 @@ class _SplashViewState extends ConsumerState<SplashView> {
       ref.read(futureInitializerPod.future).whenComplete(
         () {
           RendererBinding.instance.allowFirstFrame();
-          Future.delayed(Duration(seconds: 3), () {
-            context.navigateTo(NavBarRoute());
-          });
+          // Future.delayed(Duration(seconds: 3), () {
+          //   context.navigateTo(NavBarRoute());
+          // });
         },
       );
     }
@@ -76,8 +74,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
           futureInitializerPod,
           (previous, next) {
             if (next is AsyncData && next.valueOrNull != null) {
-              talker.info(
-                  "Initialization takes ${stopwatch.elapsedMilliseconds}");
+              talker.info("Initialization takes ${stopwatch.elapsedMilliseconds}");
               widget.onInitialized(next.requireValue);
             }
           },
