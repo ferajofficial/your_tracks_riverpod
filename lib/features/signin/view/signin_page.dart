@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -26,6 +27,14 @@ class SigninView extends StatefulWidget {
   State<SigninView> createState() => _SigninViewState();
 }
 
+TextEditingController password = TextEditingController();
+TextEditingController email = TextEditingController();
+
+signIn() async {
+  await FirebaseAuth.instance
+      .signInWithEmailAndPassword(email: email.text, password: password.text);
+}
+
 class _SigninViewState extends State<SigninView> {
   final formkey = GlobalKey<FormState>();
   @override
@@ -42,19 +51,17 @@ class _SigninViewState extends State<SigninView> {
                 const SigninText().p8(),
                 SigninForm(
                   formKey: formkey,
-                  // emailController: TextEditingController(),
-                  // passwordController: TextEditingController(),
+                  emailController: email,
+                  passwordController: password,
                 ).p8(),
                 GlobalButton(
-                        buttonText: 'Sign In',
-                        onPressed: () {
-                          // if (formkey.currentState!.validate()) {
-                          //   context.router.push(const HomeRoute());
-                          // }
-                        })
-                    .w(double.infinity)
-                    .h(55)
-                    .p8(),
+                    buttonText: 'Sign In',
+                    onPressed: () {
+                      if (formkey.currentState!.validate()) {
+                        signIn();
+                        // context.router.push(const HomeRoute());
+                      }
+                    }).w(double.infinity).h(55).p8(),
                 10.heightBox,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

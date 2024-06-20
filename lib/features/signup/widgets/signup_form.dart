@@ -5,9 +5,13 @@ import 'package:your_tracks_riverpod/const/app_colors.dart';
 
 class SignupForm extends StatelessWidget {
   final GlobalKey<FormState> formKey;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
   const SignupForm({
     super.key,
     required this.formKey,
+    required this.emailController,
+    required this.passwordController,
   });
 
   @override
@@ -17,37 +21,7 @@ class SignupForm extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.person_rounded),
-              fillColor: AppColors.kwhiteColor,
-              hintText: 'Enter Username',
-              hintStyle: TextStyle(
-                textBaseline: TextBaseline.alphabetic,
-                color: AppColors.kBlackColor,
-                fontFamily: GoogleFonts.poppins().fontFamily,
-              ),
-              labelText: 'Username',
-              labelStyle: TextStyle(
-                color: AppColors.kBlackColor,
-                fontFamily: GoogleFonts.poppins().fontFamily,
-              ),
-              border: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: AppColors.kBlackColor,
-                ),
-                borderRadius: BorderRadius.circular(15),
-              ),
-            ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter username';
-              }
-              return null;
-            },
-          ),
-          10.heightBox,
-          TextFormField(
+            controller: emailController,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.email_rounded),
@@ -79,6 +53,7 @@ class SignupForm extends StatelessWidget {
           ),
           10.heightBox,
           TextFormField(
+            controller: passwordController,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.lock_person_rounded),
@@ -108,5 +83,7 @@ class SignupForm extends StatelessWidget {
         ],
       ),
     );
+
   }
+  
 }

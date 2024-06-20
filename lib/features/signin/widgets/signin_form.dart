@@ -6,9 +6,13 @@ import 'package:your_tracks_riverpod/const/app_text.dart';
 
 class SigninForm extends StatelessWidget {
   final GlobalKey<FormState> formKey;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
   const SigninForm({
     super.key,
     required this.formKey,
+    required this.emailController,
+    required this.passwordController,
   });
 
   @override
@@ -18,6 +22,7 @@ class SigninForm extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
+            controller: emailController,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.email_rounded),
@@ -49,6 +54,7 @@ class SigninForm extends StatelessWidget {
           ),
           10.heightBox,
           TextFormField(
+            controller: passwordController,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.lock_person_rounded),

@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
-import 'package:your_tracks_riverpod/core/router/router.gr.dart';
 import 'package:your_tracks_riverpod/features/signup/widgets/signup_form.dart';
 import 'package:your_tracks_riverpod/features/signup/widgets/signup_text.dart';
 import 'package:your_tracks_riverpod/shared/global_button.dart';
@@ -26,8 +26,15 @@ class SignupView extends StatefulWidget {
   State<SignupView> createState() => _SignupViewState();
 }
 
+final formKey = GlobalKey<FormState>();
+TextEditingController password = TextEditingController();
+TextEditingController email = TextEditingController();
+signUp() async {
+  await FirebaseAuth.instance
+      .createUserWithEmailAndPassword(email: email.text, password: password.text);
+}
+
 class _SignupViewState extends State<SignupView> {
-  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,15 +47,19 @@ class _SignupViewState extends State<SignupView> {
               children: [
                 SvgPicture.asset('assets/signup.svg', height: 350).p12(),
                 const SigninText().p8(),
-                SignupForm(formKey: formKey).p8(),
+                SignupForm(
+                  formKey: formKey,
+                  emailController: email,
+                  passwordController: password,
+                ).p8(),
                 20.heightBox,
                 GlobalButton(
                     buttonText: 'Sign Up',
                     onPressed: () {
-                      context.router.push(const HomeRoute());
-                      // if (formkey.currentState!.validate()) {
-                      //   context.router.push(const HomeRoute());
-                      // }
+                      if (formKey.currentState!.validate()) {
+                        signUp();
+                        // context.router.push(const HomeRoute());
+                      }
                     }).w(double.infinity).h(55).p8(),
                 10.heightBox,
                 ElevatedButton(

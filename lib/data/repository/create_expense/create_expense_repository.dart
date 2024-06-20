@@ -8,8 +8,7 @@ import 'i_create_expense_repository.dart';
 
 class CreateExpenseRepoRepository implements ICreateExpenseRepoRepository {
   @override
-  Future<Result<void, APIException>> createExpense(
-      {required ExpenseModel expenseModel}) async {
+  Future<Result<void, APIException>> createExpense({required ExpenseModel expenseModel}) async {
     final expenseCollection = FirebaseFirestore.instance.collection('expenses');
     try {
       final result = await expenseCollection
