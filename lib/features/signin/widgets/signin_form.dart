@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
+import 'package:your_tracks_riverpod/core/router/router.gr.dart';
 
 class SigninForm extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -15,6 +18,7 @@ class SigninForm extends StatelessWidget {
     required this.passwordController,
   });
 
+  
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -83,7 +87,9 @@ class SigninForm extends StatelessWidget {
           ),
           5.heightBox,
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              context.navigateTo(const ForgotRoute());
+            },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

@@ -5,8 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
-import 'package:your_tracks_riverpod/core/router/router.gr.dart';
 import 'package:your_tracks_riverpod/features/signin/widgets/signin_form.dart';
+import 'package:your_tracks_riverpod/features/signin/widgets/signin_navigator_text.dart';
 import 'package:your_tracks_riverpod/features/signin/widgets/signin_texts.dart';
 import 'package:your_tracks_riverpod/shared/global_button.dart';
 
@@ -62,29 +62,7 @@ class _SigninViewState extends State<SigninView> {
                         // context.router.push(const HomeRoute());
                       }
                     }).w(double.infinity).h(55).p8(),
-                10.heightBox,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const AppText(
-                      text: 'Don\'t have an account?',
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        context.router.push(const SignupRoute());
-                      },
-                      child: const AppText(
-                        text: ' Sign Up',
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.ksecondaryBgColor,
-                      ),
-                    ),
-                  ],
-                ),
-                10.heightBox,
+                const SigninNavigatorText().p8(),
                 ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(

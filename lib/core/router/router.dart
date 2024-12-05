@@ -10,13 +10,14 @@ class AppRouter extends $AppRouter {
     AdaptiveRoute(
       page: OnboardingRoute.page,
       path: '/onboarding',
-      initial: true,
     ),
     AdaptiveRoute(page: SigninRoute.page, path: '/signin'),
     AdaptiveRoute(
       page: SignupRoute.page,
       path: '/signup',
+      initial: true,
     ),
+    AdaptiveRoute(page: ForgotRoute.page, path: '/forgot'),
     AdaptiveRoute(
         page: NavBarRoute.page,
         path: '/navbar',

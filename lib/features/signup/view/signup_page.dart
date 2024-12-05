@@ -6,6 +6,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks_riverpod/const/app_colors.dart';
 import 'package:your_tracks_riverpod/const/app_text.dart';
 import 'package:your_tracks_riverpod/features/signup/widgets/signup_form.dart';
+import 'package:your_tracks_riverpod/features/signup/widgets/signup_navigator_text.dart';
 import 'package:your_tracks_riverpod/features/signup/widgets/signup_text.dart';
 import 'package:your_tracks_riverpod/shared/global_button.dart';
 
@@ -61,7 +62,7 @@ class _SignupViewState extends State<SignupView> {
                         // context.router.push(const HomeRoute());
                       }
                     }).w(double.infinity).h(55).p8(),
-                10.heightBox,
+                const SignupNavigatorText().p8(),
                 ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(

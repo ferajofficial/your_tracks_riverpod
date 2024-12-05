@@ -18,7 +18,7 @@ class NavButton extends StatelessWidget {
         ),
         child: IconButton(
           onPressed: () {
-            context.router.replace(const SigninRoute());
+            context.router.replace(const SignupRoute());
           },
           icon: const Icon(
             Icons.arrow_forward_ios_rounded,
